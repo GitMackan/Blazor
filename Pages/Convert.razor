@@ -1,0 +1,29 @@
+@page "/convert"
+<PageTitle>Blazorsida - Konvertera</PageTitle>
+<!-- Presentation -->
+<h2>Konvertering av meter till fot</h2>
+<p>På denna sida kan du enkelt konvertera meter till fot.
+    <br>För att konvertera skriver du bara i antal meter som du vill konvertera i inputfältet nedan.
+</p><br>
+
+<!-- User input -->
+<label for="meter">Meter:</label>
+<input type="number" @bind="meter" class="meterInput" />
+<br><br>
+<button @onclick="ConvertMeter" class="convertBtn">Konvertera</button>
+<br><br>
+<!-- Result -->
+<p>Resultat: @fot fot</p>
+
+@code {
+    // Variables
+    private double meter;
+    private double fot;
+    // Function to convert meter to feet
+    // Round off to 2 decimals
+    private void ConvertMeter()
+    {
+        fot = meter * 3.2808399;
+        fot = Math.Round(fot, 2);
+    }
+}

@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Times, serif;
+    background-color: #f1faee;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* Header */
+
+header {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    height: 10vh;
+    background: linear-gradient(90deg, #1d3557, #5da8e6);
+    color: white;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 4vw;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Navigation */
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    border: 1px solid black;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    height: 5vh;
+    display: grid;
+    align-items: center;
+    background: linear-gradient(90deg, #1d3557, #5da8e6);
+    border-radius: 20px;
+}
+
+nav ul li:hover {
+    background-color: rgb(24, 110, 168);
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+}
+
+
+/* Main */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    margin: 0 auto;
+    gap: 2em;
+    min-height: 80vh;
+}
+
+.left {
+    text-align: center;
+    padding-top: 2em;
+    background-color: #a8dadc;
+    display: grid;
+}
+
+.right {
+    padding: 1em;
+    line-height: 1.2em;
+    letter-spacing: 0.01em;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.right h2 {
+    margin-bottom: 1em;
+}
+
+
+/* Convert-sida */
+
+.convertBtn {
+    background-color: green;
+    color: white;
+    height: 3em;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px 0px black;
+}
+
+.meterInput {
+    height: 2em;
+    border-radius: 5px;
+    padding-left: 1em;
+}
+
+
+/* JSON-Sida */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.movieTable {
+    width: 80%;
+    overflow-x: auto;
+    border-collapse: collapse
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+td a {
+    color: #1d3557;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+tr:nth-of-type(odd) {
+    background: rgb(150, 168, 201);
+}
+
+tr:nth-of-type(even) {
+    background: rgb(227, 233, 243);
+}
+
+thead tr th {
+    background: #1d3557;
+    color: rgb(236, 236, 236);
+    font-weight: 400;
+}
+
+
+/* Component */
+
+.component {
+    border: 1px solid black;
+    margin-top: 2em;
+    width: 60%;
+    background: linear-gradient(90deg, #1d3557, #5da8e6);
+    color: rgb(240, 240, 240);
+    padding: 1em;
+    border-radius: 50px;
+}
+
+.component p {
+    margin: .5em 0;
+}
+
+.component a {
+    color: rgb(216, 255, 109);
+    text-decoration: none;
+}
+
+.component a:hover {
+    text-decoration: underline;
+}
+
+.component h3 {
+    font-weight: 400;
+}
+
+
+/* Footer */
+
+footer {
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    height: 10vh;
+    align-items: center;
+    background: linear-gradient(90deg, #c70313, #e4e4e4);
+}
+
+
+/* Media queries */
+
+
+/* Screen size under 1050px */
+
+@media all and (max-width: 1050px) {
+    .container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        align-items: center;
+        margin-bottom: 10vh;
+    }
+    header {
+        justify-content: center;
+    }
+    .movieTable {
+        width: 100%;
+    }
+    .logo {
+        margin-left: 0;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+    .logo,
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    td:nth-of-type(1):before {
+        content: "Titel";
+    }
+    td:nth-of-type(2):before {
+        content: "Regisör";
+    }
+    td:nth-of-type(3):before {
+        content: "År";
+    }
+    td:nth-of-type(4):before {
+        content: "IMDB";
+    }
+}

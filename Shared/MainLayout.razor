@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+<!-- Header -->
+<header>
+    <div class="logo">
+        <h1><a href="/">Marcus Blazorsida</a></h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="left">
+        <!-- Importing NavMenu -->
+        <NavMenu />
+    </div>
+    <div class="right">
+        <!-- Main -->
+        <main role="main">
+            <div class="text-center">
+                <!-- Getting body from pages -->
+                @Body
+            </div>
+        </main>
+    </div>
+</div>
+<!-- Footer -->
+<footer>
+    <div>
+        <p>Av Marcus Nygård - Kontakta mig via e-post: many2005@student.miun.se</p>
+    </div>
+</footer>

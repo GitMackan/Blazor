@@ -1,0 +1,56 @@
+@page "/json"
+@inject HttpClient Http
+
+<PageTitle>Blazorsida - JSON</PageTitle>
+
+<h2>JSON</h2>
+
+@if (movie == null)
+{
+    <p>Laddar innehåll...</p>
+}
+else
+{
+    <!-- Table -->
+    <div class="table-container">
+        <table class="movieTable">
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Regisör</th>
+                    <th>År</th>
+                    <th>IMDB</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Foreach-loop to loop through data gathered in "movie" -->
+                @foreach (var film in movie)
+                {
+                    <tr>
+                        <td>@film.title</td>
+                        <td>@film.director</td>
+                        <td>@film.year</td>
+                        <td><a href="@film.imdb" target="_blank">Länk</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private Movie[]? movie;
+    // Http request to API
+    protected override async Task OnInitializedAsync()
+    {
+        movie = await Http.GetFromJsonAsync<Movie[]>("https://dt162g-test.herokuapp.com/movies");
+    }
+    // Model
+    public class Movie
+    {
+        public string? title { get; set; }
+        public string? director { get; set; }
+        public string? year { get; set; }
+        public string? imdb { get; set; }
+    }
+}
